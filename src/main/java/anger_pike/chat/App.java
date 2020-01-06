@@ -1,13 +1,13 @@
 package anger_pike.chat;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+import javax.websocket.OnMessage;
+import javax.websocket.server.ServerEndpoint;
+
+@ServerEndpoint("/hello")
+public class App {
+
+    @OnMessage
+    public String sayHello(String name) {
+        return "Hello " + name + "!";
     }
 }
